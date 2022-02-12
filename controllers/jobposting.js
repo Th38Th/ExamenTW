@@ -21,6 +21,21 @@ const controller = {
             }
         }
     },
+    importJobPostings: async(req, res) => {
+        const jobs = req.body;
+        try {
+            JobPosting.bulkCreate(jobs);
+            res.status(200).send("JobPostings imported!");
+        } catch (error){
+            console.log('Error:', error);
+            let msg = "Error creating JobPosting!"
+            if (error.errors){
+                res.status(400).send({message:fmtValidationError(msg,error)});
+            } else {
+                res.status(500).send({message:msg + "\n" + error.message});
+            }
+        }
+    },
     getAllJobPostings: async(req, res) => {
         try {
             let jobpostings=await JobPosting.findAll();

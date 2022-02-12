@@ -12,7 +12,7 @@ const Candidate = sequelize.define('candidate', {
         validate: {
             len: {
                 msg: "Name must have at least 5 characters.",
-                args: [5,30]
+                args: [5, 30]
             }
         }
     },
@@ -20,7 +20,8 @@ const Candidate = sequelize.define('candidate', {
         type: DataTypes.TEXT,
         validate: {
             len: {
-                msg: "Cv-ul must have at least 100 characters."
+                msg: "C.V. must have at least 100 characters.",
+                args: [100, 5000]
             }
         }
     },

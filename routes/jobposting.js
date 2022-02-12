@@ -4,6 +4,7 @@ const jobpostingController = require("../controllers/jobposting");
 const candidateRouter = require("./candidate");
 
 router.post('/jobposting',jobpostingController.addJobPosting);
+router.post('/jobposting/import',jobpostingController.importJobPostings);
 router.get('/jobposting',jobpostingController.getAllJobPostings);
 router.get('/jobposting/:id',jobpostingController.getOneJobPosting);
 router.put('/jobposting/:id',jobpostingController.updateJobPosting);

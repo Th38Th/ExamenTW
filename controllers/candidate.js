@@ -23,6 +23,21 @@ const controller = {
             }
         }
     },
+    importCandidates: async(req, res) => {
+        const candidates = req.body;
+        try {
+            Candidate.bulkCreate(candidates);
+            res.status(200).send("Candidates imported!");
+        } catch (error){
+            console.log('Error:', error);
+            let msg = "Error creating Candidates!"
+            if (error.errors){
+                res.status(400).send({message:fmtValidationError(msg,error)});
+            } else {
+                res.status(500).send({message:msg + "\n" + error.message});
+            }
+        }
+    },
     getAllCandidates: async(req, res) => {
         try{
             let _jobId = res.locals.currentJobId;
