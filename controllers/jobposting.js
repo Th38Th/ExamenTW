@@ -25,7 +25,7 @@ const controller = {
         const jobs = req.body;
         console.log(jobs)
         try {
-            JobPosting.bulkCreate(jobs);
+            await JobPosting.bulkCreate(jobs);
             res.status(200).send("JobPostings imported!");
         } catch (error){
             console.log('Error:', error);

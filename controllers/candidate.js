@@ -26,7 +26,7 @@ const controller = {
     importCandidates: async(req, res) => {
         const candidates = req.body;
         try {
-            Candidate.bulkCreate(candidates);
+            await Candidate.bulkCreate(candidates);
             res.status(200).send("Candidates imported!");
         } catch (error){
             console.log('Error:', error);
