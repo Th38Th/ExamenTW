@@ -17,7 +17,7 @@ const Candidate = sequelize.define('candidate', {
         }
     },
     cv: {
-        type: DataType.TEXT,
+        type: DataTypes.TEXT,
         validate: {
             len: {
                 msg: "Cv-ul must have at least 100 characters."
@@ -25,7 +25,7 @@ const Candidate = sequelize.define('candidate', {
         }
     },
     email: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         validate: {
             isEmail : {
                 msg: "Invalid e-mail address."
