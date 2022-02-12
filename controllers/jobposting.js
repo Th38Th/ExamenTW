@@ -23,6 +23,7 @@ const controller = {
     },
     importJobPostings: async(req, res) => {
         const jobs = req.body;
+        console.log(jobs)
         try {
             JobPosting.bulkCreate(jobs);
             res.status(200).send("JobPostings imported!");
