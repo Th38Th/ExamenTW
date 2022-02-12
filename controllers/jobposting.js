@@ -63,8 +63,8 @@ const controller = {
         let jobpostingId=req.params['id'];
         const jobposting=await JobPosting.findOne({where:{id:jobpostingId}});
         jobposting.update({
-            name:req.body.name,
-            displacement:req.body.displacement
+            descriere: req.body.descriere,
+            deadline: req.body.deadline
         })
             .then(() => {
                 res.status(200).send({message:"Jobposting updated!"})
