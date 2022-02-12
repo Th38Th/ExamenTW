@@ -9,6 +9,6 @@ router.get('/jobposting/:id',jobpostingController.getOneJobPosting);
 router.put('/jobposting/:id',jobpostingController.updateJobPosting);
 router.delete('/jobposting/:id',jobpostingController.deleteJobPosting);
 
-router.use('/jobposting/:id/candidate', candidateRouter)
+router.use('/jobposting/:id/', candidateRouter)
 
 module.exports = router;
