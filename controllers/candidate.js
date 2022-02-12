@@ -7,7 +7,7 @@ const controller = {
             name: req.body.name,
             cv: req.body.cv,
             email: req.body.email,
-            jobId: req.params['id']
+            jobId: res.locals.currentJobId
         }
         try {
             const newCandidate=await Candidate.create(candidate);
@@ -25,7 +25,7 @@ const controller = {
     },
     getAllCandidates: async(req, res) => {
         try{
-            let _jobId = req.params['id'];
+            let _jobId = res.locals.currentJobId;
             const candidate = await Candidate.findAll({ where: { jobId: _jobId }});
             res.status(200).send(candidate);
         } catch(err){
