@@ -1,5 +1,5 @@
 const other = require('./other')
-const jobposting = require('./ship');
+const jobposting = require('./jobposting');
 const candidate = require('./candidate');
 
 const controllers = {
