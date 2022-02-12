@@ -9,7 +9,7 @@ router.get('/jobposting/:id',jobpostingController.getOneJobPosting);
 router.put('/jobposting/:id',jobpostingController.updateJobPosting);
 router.delete('/jobposting/:id',jobpostingController.deleteJobPosting);
 
-router.use('/jobposting/:id', (res, req, next) => {
+router.use('/jobposting/:id', (req, res, next) => {
     res.locals.currentJobId = req.params['id']
     next();
 })
