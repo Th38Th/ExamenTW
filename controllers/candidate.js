@@ -26,7 +26,7 @@ const controller = {
     getAllCandidates: async(req, res) => {
         try{
             let _jobId = req.params['id'];
-            const candidate = await Candidate.findAll({ where: { jobid: _jobId }});
+            const candidate = await Candidate.findAll({ where: { jobId: _jobId }});
             res.status(200).send(candidate);
         } catch(err){
             res.status(500).send({
